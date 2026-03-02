@@ -36,31 +36,31 @@ export function Hero({ profile }: { profile: Profile }) {
               </p>
             </FadeIn>
             
-            <FadeIn delay={0.4} className="flex flex-wrap items-center gap-4">
-              <Button size="lg" className="rounded-full h-12 px-8 shadow-lg shadow-primary/25 group hover-elevate" onClick={() => {
-                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+            <FadeIn delay={0.4} className="flex flex-wrap items-center gap-6">
+              <Button size="lg" className="h-14 px-10 shadow-2xl shadow-primary/40 group hover-elevate transition-all duration-500 hover:scale-105 active:scale-95 bg-primary text-primary-foreground rounded-full font-bold" onClick={() => {
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }}>
-                View My Work
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                Hire Me
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
               </Button>
               
-              <div className="flex items-center gap-3 ml-2">
+              <div className="flex items-center gap-4">
                 {profile.githubLink && (
-                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted hover-elevate" asChild>
+                  <Button variant="outline" size="icon" className="h-12 w-12 rounded-full border-border/50 hover:bg-muted hover-elevate hover:border-primary/50 transition-all duration-300" asChild>
                     <a href={profile.githubLink} target="_blank" rel="noreferrer" aria-label="GitHub">
                       <Github className="h-5 w-5" />
                     </a>
                   </Button>
                 )}
                 {profile.linkedinLink && (
-                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted hover-elevate" asChild>
+                  <Button variant="outline" size="icon" className="h-12 w-12 rounded-full border-border/50 hover:bg-muted hover-elevate hover:border-primary/50 transition-all duration-300" asChild>
                     <a href={profile.linkedinLink} target="_blank" rel="noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-5 w-5" />
                     </a>
                   </Button>
                 )}
                 {(profile.resumeUrl || true) && (
-                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted hover-elevate" asChild>
+                  <Button variant="outline" size="icon" className="h-12 w-12 rounded-full border-border/50 hover:bg-muted hover-elevate hover:border-primary/50 transition-all duration-300" asChild>
                     <a href={profile.resumeUrl || "#"} target="_blank" rel="noreferrer" aria-label="Resume">
                       <FileText className="h-5 w-5" />
                     </a>

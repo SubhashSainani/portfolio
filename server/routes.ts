@@ -84,13 +84,27 @@ async function seedDatabase() {
         role: "Software Engineer",
         company: "Telenor Microfinance Bank - Easypaisa",
         duration: "Aug 2021 – Jun 2023",
-        responsibilities: "Leading digital financial services in Pakistan. Resolved critical issues and designed RESTful APIs.",
+        responsibilities: "Leading digital financial services in Pakistan. Leading development of microservices and RESTful APIs.",
         achievements: [
-          "Achieved 30% reduction in system downtime",
-          "Implemented microservices architecture for millions of users",
-          "Led security enhancements and performance optimizations"
+          "Resolved critical issues and bugs across the platform, achieving 30% reduction in system downtime and significantly improving application reliability for millions of users.",
+          "Designed and implemented RESTful APIs and microservices architecture in collaboration with a 5-person development team, improving system scalability and reducing deployment time.",
+          "Designed Led implementation of security enhancements and performance optimizations, resulting in faster response times and improved user engagement across mobile and web platforms.",
+          "Collaborated with QA team and stakeholders through agile sprints to ensure high software quality and alignment with business objectives, consistently delivering projects on time and within scope.",
+          "Focused on writing clean, maintainable code and solving complex technical problems for a fintech platform serving millions of users."
         ],
         orderIndex: 1
+      },
+      {
+        role: "Software Engineering Intern",
+        company: "Inter-Process Communication Project",
+        duration: "Jun 2020",
+        responsibilities: "Internship focusing on system-level communication and software development practices.",
+        achievements: [
+          "Successfully completed internship program with focus on Inter-Process Communication.",
+          "Gained hands-on experience in modern software development life cycles.",
+          "Developed core technical competencies in system-level programming."
+        ],
+        orderIndex: 2
       }
     ]);
 
@@ -114,14 +128,44 @@ async function seedDatabase() {
     ]);
 
     await db.insert(skills).values([
-      { category: "Backend", name: "Java", proficiency: 95, orderIndex: 1 },
-      { category: "Backend", name: "Spring Boot", proficiency: 90, orderIndex: 2 },
-      { category: "Backend", name: "Hibernate", proficiency: 85, orderIndex: 3 },
-      { category: "DevOps", name: "Docker", proficiency: 90, orderIndex: 4 },
-      { category: "DevOps", name: "Kubernetes", proficiency: 85, orderIndex: 5 },
-      { category: "DevOps", name: "AWS/GCP", proficiency: 80, orderIndex: 6 },
-      { category: "Frontend", name: "JavaScript", proficiency: 75, orderIndex: 7 },
-      { category: "Databases", name: "SQL/MongoDB", proficiency: 85, orderIndex: 8 },
+      { category: "Backend", name: "Java", proficiency: null, orderIndex: 1 },
+      { category: "Backend", name: "Spring Boot", proficiency: null, orderIndex: 2 },
+      { category: "Backend", name: "Hibernate", proficiency: null, orderIndex: 3 },
+      { category: "Backend", name: "Spring", proficiency: null, orderIndex: 4 },
+      { category: "DevOps", name: "Docker", proficiency: null, orderIndex: 5 },
+      { category: "DevOps", name: "Kubernetes", proficiency: null, orderIndex: 6 },
+      { category: "DevOps", name: "AWS", proficiency: null, orderIndex: 7 },
+      { category: "DevOps", name: "GCP", proficiency: null, orderIndex: 8 },
+      { category: "DevOps", name: "Terraform", proficiency: null, orderIndex: 9 },
+      { category: "DevOps", name: "CI/CD", proficiency: null, orderIndex: 10 },
+      { category: "Languages", name: "JavaScript", proficiency: null, orderIndex: 11 },
+      { category: "Languages", name: "SQL", proficiency: null, orderIndex: 12 },
+      { category: "Languages", name: "C++", proficiency: null, orderIndex: 13 },
+      { category: "Databases", name: "MongoDB", proficiency: null, orderIndex: 14 },
+    ]);
+
+    await db.insert(certifications).values([
+      {
+        name: "System Reliability & Downtime Reduction Award",
+        issuingOrg: "Telenor Microfinance Bank",
+        date: "2022",
+        credentialLink: null,
+        orderIndex: 1
+      },
+      {
+        name: "Java Masterclass",
+        issuingOrg: "Udemy",
+        date: "2023",
+        credentialLink: null,
+        orderIndex: 2
+      },
+      {
+        name: "Networking & Cloud Technologies",
+        issuingOrg: "TAFE",
+        date: "2024",
+        credentialLink: null,
+        orderIndex: 3
+      }
     ]);
 
     await db.insert(education).values([
@@ -130,7 +174,7 @@ async function seedDatabase() {
         university: "Deakin University",
         year: "Jul 2023 – Sep 2025",
         coursework: "Software deployment and Operations, Applied Software Engineering, Cloud Native Application Development",
-        achievements: "Major in Networking and Cloud Technologies",
+        achievements: "/images/deakin.jpg",
         orderIndex: 1
       },
       {
@@ -138,6 +182,7 @@ async function seedDatabase() {
         university: "Ghulam Ishaq Khan Institute - GIKI",
         year: "Sep 2017 – Jul 2021",
         coursework: "Data Analysis, Software Engineering, Operating Systems, Algorithms, Artificial Intelligence",
+        achievements: "/images/giki.png",
         orderIndex: 2
       }
     ]);
