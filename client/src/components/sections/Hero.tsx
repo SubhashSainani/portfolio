@@ -26,7 +26,7 @@ export function Hero({ profile }: { profile: Profile }) {
             <FadeIn delay={0.2}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.1] mb-6">
                 Hi, I'm {profile.name.split(' ')[0]}. <br />
-                <span className="text-gradient">{profile.title}</span>
+                <span className="text-gradient leading-tight">{profile.title}</span>
               </h1>
             </FadeIn>
             
@@ -37,7 +37,7 @@ export function Hero({ profile }: { profile: Profile }) {
             </FadeIn>
             
             <FadeIn delay={0.4} className="flex flex-wrap items-center gap-4">
-              <Button size="lg" className="rounded-full h-12 px-8 shadow-lg shadow-primary/25 group" onClick={() => {
+              <Button size="lg" className="rounded-full h-12 px-8 shadow-lg shadow-primary/25 group hover-elevate" onClick={() => {
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
               }}>
                 View My Work
@@ -46,22 +46,22 @@ export function Hero({ profile }: { profile: Profile }) {
               
               <div className="flex items-center gap-3 ml-2">
                 {profile.githubLink && (
-                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted" asChild>
+                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted hover-elevate" asChild>
                     <a href={profile.githubLink} target="_blank" rel="noreferrer" aria-label="GitHub">
                       <Github className="h-5 w-5" />
                     </a>
                   </Button>
                 )}
                 {profile.linkedinLink && (
-                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted" asChild>
+                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted hover-elevate" asChild>
                     <a href={profile.linkedinLink} target="_blank" rel="noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-5 w-5" />
                     </a>
                   </Button>
                 )}
-                {profile.resumeUrl && (
-                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted" asChild>
-                    <a href={profile.resumeUrl} target="_blank" rel="noreferrer" aria-label="Resume">
+                {(profile.resumeUrl || true) && (
+                  <Button variant="outline" size="icon" className="rounded-full h-12 w-12 border-border/50 hover:bg-muted hover-elevate" asChild>
+                    <a href={profile.resumeUrl || "#"} target="_blank" rel="noreferrer" aria-label="Resume">
                       <FileText className="h-5 w-5" />
                     </a>
                   </Button>
@@ -72,14 +72,14 @@ export function Hero({ profile }: { profile: Profile }) {
 
           <FadeIn delay={0.5} direction="left" className="hidden lg:flex justify-end">
             <div className="relative w-full max-w-md aspect-square">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/20 to-blue-500/20 blur-2xl transform rotate-6"></div>
-              <div className="relative h-full w-full rounded-3xl overflow-hidden border border-border/50 shadow-2xl glass-card">
-                {/* Hero portrait abstract scenic landscape */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/20 to-blue-500/20 blur-2xl transform rotate-6 scale-105 opacity-50"></div>
+              <div className="relative h-full w-full rounded-3xl overflow-hidden border border-border/50 shadow-2xl glass-card group">
                 <img 
-                  src={profile.profileImageUrl || "https://images.unsplash.com/photo-1507238692062-710e20e8b2ed?w=800&q=80"} 
+                  src={profile.profileImageUrl || "/images/profile.jpg"} 
                   alt={profile.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
               </div>
             </div>
           </FadeIn>

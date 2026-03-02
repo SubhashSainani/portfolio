@@ -66,84 +66,79 @@ async function seedDatabase() {
   const p = await storage.getProfile();
   if (!p) {
     await db.insert(profile).values({
-      name: "Alex Developer",
-      title: "Full Stack Engineer",
-      summary: "I build exceptional and accessible digital experiences for the web.",
-      aboutDetails: "I am a passionate Full Stack Developer with experience in building scalable web applications. I love solving complex problems and learning new technologies.",
-      careerGoals: "My goal is to build impactful software that improves people's lives and to eventually lead a team of talented developers.",
-      coreStrengths: ["System Architecture", "React & Node.js", "Database Design", "Performance Optimization"],
-      softSkills: ["Communication", "Leadership", "Teamwork", "Problem-solving"],
-      email: "hello@example.com",
+      name: "Subhash",
+      title: "Java Software Engineer",
+      summary: "Java Software Engineer with 2 years of experience building microservices for a fintech platform serving millions of users. Skilled in Spring Boot, Docker, Kubernetes, and CI/CD automation.",
+      aboutDetails: "I am a focused Software Engineer with a passion for writing clean, maintainable code and solving complex technical problems. Currently pursuing a Master of Information Technology at Deakin University, majoring in Networking and Cloud Technologies.",
+      careerGoals: "My goal is to leverage my expertise in Java and cloud technologies to build scalable, secure, and high-performance financial systems that serve global users.",
+      coreStrengths: ["Microservices Architecture", "Spring Boot", "Cloud Native Development", "CI/CD Automation"],
+      softSkills: ["Problem-solving", "Team Collaboration", "Agile Methodologies", "Technical Leadership"],
+      email: "subhashsainani4@gmail.com",
       githubLink: "https://github.com",
-      linkedinLink: "https://linkedin.com",
+      linkedinLink: "https://linkedin.com/in/subhashsainani/",
+      profileImageUrl: "/images/profile.jpg",
     });
 
     await db.insert(experience).values([
       {
-        role: "Senior Frontend Engineer",
-        company: "Tech Corp",
-        duration: "2021 - Present",
-        responsibilities: "Led the frontend team in migrating from Vue to React, improving performance by 40%.",
-        achievements: ["Improved load time by 30%", "Mentored 3 junior developers"],
+        role: "Software Engineer",
+        company: "Telenor Microfinance Bank - Easypaisa",
+        duration: "Aug 2021 – Jun 2023",
+        responsibilities: "Leading digital financial services in Pakistan. Resolved critical issues and designed RESTful APIs.",
+        achievements: [
+          "Achieved 30% reduction in system downtime",
+          "Implemented microservices architecture for millions of users",
+          "Led security enhancements and performance optimizations"
+        ],
         orderIndex: 1
-      },
-      {
-        role: "Software Developer",
-        company: "Startup Inc",
-        duration: "2018 - 2021",
-        responsibilities: "Developed RESTful APIs using Node.js and Express. Managed PostgreSQL database.",
-        achievements: ["Built core payment integration", "Reduced server costs by 20%"],
-        orderIndex: 2
       }
     ]);
 
     await db.insert(projects).values([
       {
-        name: "E-Commerce Platform",
-        description: "A full-stack e-commerce platform with Stripe integration and real-time inventory.",
-        techStack: ["React", "Node.js", "PostgreSQL", "Stripe"],
-        keyFeatures: ["User Authentication", "Shopping Cart", "Payment Processing"],
+        name: "Online Voting Platform",
+        description: "Secure, microservices-based system with Spring Boot, supporting user registration and real-time result tracking.",
+        techStack: ["Java", "Spring Boot", "Docker", "Kubernetes", "GitHub Actions"],
+        keyFeatures: ["API Gateway", "Service Discovery", "Containerization", "CI/CD"],
         githubLink: "https://github.com",
-        liveDemoLink: "https://example.com",
         orderIndex: 1
       },
       {
-        name: "Task Management App",
-        description: "A collaborative task management tool with real-time updates.",
-        techStack: ["Next.js", "Socket.io", "Redis", "Tailwind CSS"],
-        keyFeatures: ["Real-time Sync", "Kanban Board", "Role-based Access"],
+        name: "DevFolio – Personal Portfolio",
+        description: "Interactive portfolio using Spring Boot and MySQL with an admin dashboard for real-time updates.",
+        techStack: ["Java", "Spring Boot", "Thymeleaf", "MySQL", "Hibernate"],
+        keyFeatures: ["Spring Data JPA", "Rate Limiting", "Responsive UI", "Cloud Deployment"],
         githubLink: "https://github.com",
         orderIndex: 2
       }
     ]);
 
     await db.insert(skills).values([
-      { category: "Frontend", name: "React", proficiency: 95, orderIndex: 1 },
-      { category: "Frontend", name: "TypeScript", proficiency: 90, orderIndex: 2 },
-      { category: "Frontend", name: "Tailwind CSS", proficiency: 90, orderIndex: 3 },
-      { category: "Backend", name: "Node.js", proficiency: 85, orderIndex: 4 },
-      { category: "Backend", name: "PostgreSQL", proficiency: 80, orderIndex: 5 },
-      { category: "Tools", name: "Git", proficiency: 90, orderIndex: 6 },
-    ]);
-
-    await db.insert(certifications).values([
-      {
-        name: "AWS Certified Developer",
-        issuingOrg: "Amazon Web Services",
-        date: "2022",
-        credentialLink: "https://aws.amazon.com",
-        orderIndex: 1
-      }
+      { category: "Backend", name: "Java", proficiency: 95, orderIndex: 1 },
+      { category: "Backend", name: "Spring Boot", proficiency: 90, orderIndex: 2 },
+      { category: "Backend", name: "Hibernate", proficiency: 85, orderIndex: 3 },
+      { category: "DevOps", name: "Docker", proficiency: 90, orderIndex: 4 },
+      { category: "DevOps", name: "Kubernetes", proficiency: 85, orderIndex: 5 },
+      { category: "DevOps", name: "AWS/GCP", proficiency: 80, orderIndex: 6 },
+      { category: "Frontend", name: "JavaScript", proficiency: 75, orderIndex: 7 },
+      { category: "Databases", name: "SQL/MongoDB", proficiency: 85, orderIndex: 8 },
     ]);
 
     await db.insert(education).values([
       {
-        degree: "B.S. Computer Science",
-        university: "University of Technology",
-        year: "2014 - 2018",
-        coursework: "Data Structures, Algorithms, Web Development",
-        achievements: "Graduated with Honors",
+        degree: "Master of Information Technology (Professional)",
+        university: "Deakin University",
+        year: "Jul 2023 – Sep 2025",
+        coursework: "Software deployment and Operations, Applied Software Engineering, Cloud Native Application Development",
+        achievements: "Major in Networking and Cloud Technologies",
         orderIndex: 1
+      },
+      {
+        degree: "Bachelor of Science in Computer Science",
+        university: "Ghulam Ishaq Khan Institute - GIKI",
+        year: "Sep 2017 – Jul 2021",
+        coursework: "Data Analysis, Software Engineering, Operating Systems, Algorithms, Artificial Intelligence",
+        orderIndex: 2
       }
     ]);
   }
