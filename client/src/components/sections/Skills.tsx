@@ -8,14 +8,13 @@ import {
   Settings, 
   Terminal,
   Cloud,
-  Cpu,
   Globe,
   Box,
   Infinity as InfinityIcon,
   Layers,
   Webhook
 } from "lucide-react";
-import { SiSpringboot, SiDocker, SiKubernetes, SiAmazonwebservices, SiGooglecloud, SiTerraform, SiMongodb, SiPostgresql, SiJavascript, SiJava } from "react-icons/si";
+import * as SiIcons from "react-icons/si";
 
 const categoryIcons: Record<string, any> = {
   Backend: Server,
@@ -28,17 +27,17 @@ const categoryIcons: Record<string, any> = {
 };
 
 const skillIcons: Record<string, any> = {
-  "Java": SiJava,
-  "Spring Boot": SiSpringboot,
-  "Spring": SiSpringboot,
-  "Docker": SiDocker,
-  "Kubernetes": SiKubernetes,
-  "AWS": SiAmazonwebservices,
-  "GCP": SiGooglecloud,
-  "Terraform": SiTerraform,
-  "MongoDB": SiMongodb,
-  "SQL": SiPostgresql,
-  "JavaScript": SiJavascript,
+  "Java": SiIcons.SiOpenjdk,
+  "Spring Boot": SiIcons.SiSpringboot,
+  "Spring": SiIcons.SiSpring,
+  "Docker": SiIcons.SiDocker,
+  "Kubernetes": SiIcons.SiKubernetes,
+  "AWS": SiIcons.SiAmazonwebservices,
+  "GCP": SiIcons.SiGooglecloud,
+  "Terraform": SiIcons.SiTerraform,
+  "MongoDB": SiIcons.SiMongodb,
+  "SQL": SiIcons.SiPostgresql,
+  "JavaScript": SiIcons.SiJavascript,
   "Hibernate": Layers,
   "CI/CD": InfinityIcon,
   "Microservices": Box,
