@@ -1,10 +1,7 @@
-import { db } from "./db";
 import {
-  profile, experience, projects, skills, certifications, education, contactMessages,
   type Profile, type Experience, type Project, type Skill, type Certification, type Education,
-  type InsertContactMessage
+  type InsertContactMessage, type ContactMessage
 } from "@shared/schema";
-import { asc } from "drizzle-orm";
 
 export interface IStorage {
   getProfile(): Promise<Profile | undefined>;
@@ -16,35 +13,34 @@ export interface IStorage {
   createContactMessage(message: InsertContactMessage): Promise<void>;
 }
 
-export class DatabaseStorage implements IStorage {
-  async getProfile(): Promise<Profile | undefined> {
-    const [p] = await db.select().from(profile);
-    return p;
-  }
+export class MemStorage implements IStorage {
+  currentProfile: Profile | undefined;
+  experiences: Experience[] = [];
+  projects: Project[] = [];
+  skills: Skill[] = [];
+  certifications: Certification[] = [];
+  education: Education[] = [];
+  contactMessages: ContactMessage[] = [];
+  messageId = 1;
 
-  async getExperience(): Promise<Experience[]> {
-    return await db.select().from(experience).orderBy(asc(experience.orderIndex));
-  }
-
-  async getProjects(): Promise<Project[]> {
-    return await db.select().from(projects).orderBy(asc(projects.orderIndex));
-  }
-
-  async getSkills(): Promise<Skill[]> {
-    return await db.select().from(skills).orderBy(asc(skills.orderIndex));
-  }
-
-  async getCertifications(): Promise<Certification[]> {
-    return await db.select().from(certifications).orderBy(asc(certifications.orderIndex));
-  }
-
-  async getEducation(): Promise<Education[]> {
-    return await db.select().from(education).orderBy(asc(education.orderIndex));
-  }
+  async getProfile(): Promise<Profile | undefined> { return this.currentProfile; }
+  async getExperience(): Promise<Experience[]> { return this.experiences.sort((a, b) => a.orderIndex - b.orderIndex); }
+  async getProjects(): Promise<Project[]> { return this.projects.sort((a, b) => a.orderIndex - b.orderIndex); }
+  async getSkills(): Promise<Skill[]> { return this.skills.sort((a, b) => a.orderIndex - b.orderIndex); }
+  async getCertifications(): Promise<Certification[]> { return this.certifications.sort((a, b) => a.orderIndex - b.orderIndex); }
+  async getEducation(): Promise<Education[]> { return this.education.sort((a, b) => a.orderIndex - b.orderIndex); }
 
   async createContactMessage(message: InsertContactMessage): Promise<void> {
-    await db.insert(contactMessages).values(message);
+    this.contactMessages.push({ ...message, id: this.messageId++, createdAt: new Date() });
   }
+
+  // Seeding methods
+  async setProfile(p: Profile) { this.currentProfile = p; }
+  async addExperiences(e: Experience[]) { this.experiences.push(...e); }
+  async addProjects(p: Project[]) { this.projects.push(...p); }
+  async addSkills(s: Skill[]) { this.skills.push(...s); }
+  async addCertifications(c: Certification[]) { this.certifications.push(...c); }
+  async addEducation(e: Education[]) { this.education.push(...e); }
 }
 
-export const storage = new DatabaseStorage();
+export const storage = new MemStorage();

@@ -1,11 +1,11 @@
 import { FadeIn } from "@/components/ui/fade-in";
 import type { Skill } from "@shared/schema";
-import { 
-  Code2, 
-  Database, 
-  Layout, 
-  Server, 
-  Settings, 
+import {
+  Code2,
+  Database,
+  Layout,
+  Server,
+  Settings,
   Terminal,
   Cloud,
   Globe,
@@ -38,6 +38,28 @@ const skillIcons: Record<string, any> = {
   "MongoDB": SiIcons.SiMongodb,
   "SQL": SiIcons.SiPostgresql,
   "JavaScript": SiIcons.SiJavascript,
+  "React": SiIcons.SiReact,
+  "TypeScript": SiIcons.SiTypescript,
+  "Tailwind CSS": SiIcons.SiTailwindcss,
+  "Framer Motion": SiIcons.SiFramer,
+  "Vite": SiIcons.SiVite,
+  "Express": SiIcons.SiExpress,
+  "Node.js": SiIcons.SiNodedotjs,
+  "Jenkins": SiIcons.SiJenkins,
+  "Postman": SiIcons.SiPostman,
+  "GitHub": SiIcons.SiGithub,
+  "Git": SiIcons.SiGit,
+  "C++": SiIcons.SiCplusplus,
+  "C": SiIcons.SiC,
+  "Eclipse IDE": SiIcons.SiEclipseide,
+  "VS Code": Code2,
+  "Jira": SiIcons.SiJira,
+  "Apache Tomcat": SiIcons.SiApachetomcat,
+  "Jetty": Settings,
+  "Maven": SiIcons.SiApachemaven,
+  "GitHub Actions": SiIcons.SiGithubactions,
+  "API Gateway": Globe,
+  "Service Discovery": Server,
   "Hibernate": Layers,
   "CI/CD": InfinityIcon,
   "Microservices": Box,
@@ -72,7 +94,7 @@ export function Skills({ skills }: { skills: Skill[] }) {
           {categories.map((category, idx) => {
             const catSkills = grouped[category].sort((a, b) => a.orderIndex - b.orderIndex);
             const CategoryIcon = categoryIcons[category] || Terminal;
-            
+
             return (
               <FadeIn key={category} delay={idx * 0.1} fullWidth>
                 <div className="glass-card p-6 rounded-2xl h-full border border-border/50 hover:border-primary/50 transition-all duration-300">
@@ -84,16 +106,16 @@ export function Skills({ skills }: { skills: Skill[] }) {
                       {category}
                     </h3>
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
                     {catSkills.map(skill => {
                       const SkillIcon = skillIcons[skill.name] || Code2;
                       return (
-                        <div key={skill.id} className="group flex items-center gap-3 p-2 rounded-xl hover:bg-primary/5 transition-colors">
-                          <div className="p-2 rounded-lg bg-background border border-border/50 group-hover:border-primary/30 text-muted-foreground group-hover:text-primary transition-all">
-                            <SkillIcon className="w-4 h-4" />
+                        <div key={skill.id} className="group flex flex-col items-center gap-3 p-4 rounded-2xl bg-background/50 border border-border/50 hover:bg-primary/5 hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
+                          <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                            <SkillIcon className="w-10 h-10" />
                           </div>
-                          <span className="text-sm font-medium group-hover:text-primary transition-colors">{skill.name}</span>
+                          <span className="text-sm font-semibold text-center group-hover:text-primary transition-colors">{skill.name}</span>
                         </div>
                       );
                     })}
