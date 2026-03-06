@@ -1,0 +1,181 @@
+Create a production-ready full-stack personal portfolio website for a software developer.
+
+Tech Stack:
+Backend:
+- Node.js (latest LTS)
+- Express.js
+- PostgreSQL
+- Prisma ORM
+- RESTful API
+- Clean architecture
+- Environment-based config
+
+Frontend:
+- React (latest version) with Vite
+- Tailwind CSS for styling
+- Framer Motion for animations
+- Fully responsive (mobile + tablet + desktop)
+- Modern, aesthetic, minimal, professional UI
+- Smooth scrolling and subtle animations
+- Clean typography and spacing
+- Beautiful color palette suitable for a software engineer portfolio
+
+IMPORTANT:
+The design must look premium, modern, and recruiter-friendly.
+It should feel like a professional SaaS landing page.
+It must work perfectly on web and mobile.
+
+--------------------------------------------------
+PROJECT PURPOSE
+--------------------------------------------------
+
+This portfolio is meant to be shown to recruiters and hiring managers.
+It should clearly communicate:
+- Who I am
+- My experience
+- My projects
+- My technical skills
+- My certifications
+- My education
+- My soft skills
+- Contact information
+
+--------------------------------------------------
+PAGES & SECTIONS
+--------------------------------------------------
+
+1. Home Page
+- Hero section with:
+  - Name
+  - Title (e.g., Full Stack Developer)
+  - Short professional summary
+  - CTA buttons (View Projects, Contact Me)
+- Professional profile image section
+- Tech stack highlights
+- Smooth scroll navigation
+
+2. About Page
+- Detailed professional summary
+- Career goals
+- Core strengths
+- Soft skills (communication, leadership, teamwork, problem-solving)
+
+3. Experience Page
+- Timeline layout
+- Job role
+- Company name
+- Duration
+- Responsibilities
+- Achievements with measurable impact (e.g., improved performance by 30%)
+- Clean vertical timeline UI
+
+4. Projects Page
+- Modern card layout
+- Project name
+- Description
+- Tech stack used
+- Key features
+- GitHub link
+- Live demo link
+- Filter by tech stack
+
+5. Skills Page
+- Technical Skills (categorized):
+  - Frontend
+  - Backend
+  - Databases
+  - DevOps
+  - Tools
+- Progress bars or modern skill badges
+- Soft Skills section
+
+6. Certifications Page
+- Certification name
+- Issuing organization
+- Date
+- Credential link
+- Clean card/grid layout
+
+7. Education Page
+- Degree
+- University name
+- Year
+- Relevant coursework
+- Achievements
+
+8. Contact Page
+- Contact form (Name, Email, Message)
+- Backend API to store messages in PostgreSQL
+- Email validation
+- LinkedIn, GitHub, Email links
+- Download Resume button
+
+--------------------------------------------------
+BACKEND REQUIREMENTS
+--------------------------------------------------
+
+Create APIs for:
+- GET /api/profile
+- GET /api/experience
+- GET /api/projects
+- GET /api/skills
+- GET /api/certifications
+- GET /api/education
+- POST /api/contact
+
+Database tables:
+- profile
+- experience
+- projects
+- skills
+- certifications
+- education
+- contact_messages
+
+Use:
+- Proper validation
+- Error handling middleware
+- Clean folder structure:
+  - routes
+  - controllers
+  - services
+  - middleware
+  - config
+
+--------------------------------------------------
+UI/UX REQUIREMENTS
+--------------------------------------------------
+
+The UI must:
+- Be elegant and minimal
+- Use consistent spacing
+- Have soft shadows and smooth hover effects
+- Include dark mode support
+- Have animated page transitions
+- Be fully responsive (mobile-first)
+- Use a sticky navbar
+- Have smooth scrolling
+
+--------------------------------------------------
+DEPLOYMENT PREPARATION
+--------------------------------------------------
+
+- Frontend must be build-ready for static hosting (GitHub Pages via GitHub Actions)
+- Use environment variables for API base URL
+- Enable CORS properly
+- Provide clear setup instructions
+
+--------------------------------------------------
+DELIVERABLES
+--------------------------------------------------
+
+- Complete backend folder structure
+- Complete frontend folder structure
+- Prisma schema
+- Sample data
+- Setup instructions
+- Scripts to run backend and frontend
+- Production build instructions
+
+Code must be clean, modular, scalable, and portfolio-quality.
+Design must impress recruiters within the first 10 seconds.
