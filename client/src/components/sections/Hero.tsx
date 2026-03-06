@@ -7,9 +7,9 @@ export function Hero({ profile }: { profile: Profile }) {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 pb-16 overflow-hidden">
       {/* Background glowing orbs */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] rounded-full bg-primary/30 blur-[100px] mix-blend-screen" />
-        <div className="absolute bottom-1/4 right-1/4 w-[40vw] h-[40vw] rounded-full bg-blue-500/20 blur-[100px] mix-blend-screen" />
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-50 dark:opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-[50vw] h-[50vw] rounded-full bg-primary/20 blur-[120px] mix-blend-screen animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[40vw] h-[40vw] rounded-full bg-indigo-500/20 blur-[100px] mix-blend-screen" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

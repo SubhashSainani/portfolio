@@ -110,12 +110,22 @@ async function seedDatabase() {
 
     await db.insert(projects).values([
       {
+        name: "Stock Tracker",
+        description: "A real-time stock tracking application built with Java and Spring Boot, featuring live price updates and portfolio management.",
+        techStack: ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "Maven"],
+        keyFeatures: ["Real-time Tracking", "Portfolio Analytics", "Historical Data Visualization", "Custom Watchlists"],
+        githubLink: "https://github.com/SubhashSainani/stock-tracker",
+        imageUrl: "https://images.unsplash.com/photo-1611974715853-2b8ef9597399?w=800&q=80",
+        orderIndex: 1
+      },
+      {
         name: "Online Voting Platform",
         description: "Secure, microservices-based system with Spring Boot, supporting user registration and real-time result tracking.",
         techStack: ["Java", "Spring Boot", "Docker", "Kubernetes", "GitHub Actions"],
         keyFeatures: ["API Gateway", "Service Discovery", "Containerization", "CI/CD"],
         githubLink: "https://github.com",
-        orderIndex: 1
+        imageUrl: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=800&q=80",
+        orderIndex: 2
       },
       {
         name: "DevFolio – Personal Portfolio",
@@ -123,7 +133,8 @@ async function seedDatabase() {
         techStack: ["Java", "Spring Boot", "Thymeleaf", "MySQL", "Hibernate"],
         keyFeatures: ["Spring Data JPA", "Rate Limiting", "Responsive UI", "Cloud Deployment"],
         githubLink: "https://github.com",
-        orderIndex: 2
+        imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+        orderIndex: 3
       }
     ]);
 
