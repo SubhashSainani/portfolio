@@ -1,5 +1,13 @@
 // Hardcoded static data to replace backend API calls for GitHub Pages deployment.
 
+const getAssetUrl = (path: string) => {
+    if (!path || path.startsWith('http')) return path;
+    // Ensure we correctly append the Vite base URL for GitHub Pages
+    const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+    const cleanPath = path.startsWith('/') ? path.substring(1) : path;
+    return `${base}${cleanPath}`;
+};
+
 export const profileData = {
     id: 1,
     name: "Subhash",
@@ -12,7 +20,7 @@ export const profileData = {
     email: "subhashsainani4@gmail.com",
     githubLink: "https://github.com",
     linkedinLink: "https://linkedin.com/in/subhashsainani/",
-    profileImageUrl: "/images/profile.jpg",
+    profileImageUrl: getAssetUrl("/images/profile.jpg"),
     resumeUrl: null,
 };
 
@@ -56,7 +64,7 @@ export const projectsData = [
         keyFeatures: ["Real-time Tracking", "Portfolio Analytics", "Historical Data Visualization", "Custom Watchlists"],
         githubLink: "https://github.com/SubhashSainani/stock-tracker",
         liveDemoLink: null,
-        imageUrl: "/images/stock-tracker.jpg",
+        imageUrl: getAssetUrl("/images/stock-tracker.jpg"),
         orderIndex: 1
     },
     {
@@ -153,7 +161,7 @@ export const educationData = [
         university: "Deakin University",
         year: "Jul 2023 \u2013 Sep 2025",
         coursework: "Software deployment and Operations, Applied Software Engineering, Cloud Native Application Development",
-        achievements: "/images/deakin.jpg",
+        achievements: getAssetUrl("/images/deakin.jpg"),
         orderIndex: 1
     },
     {
@@ -162,7 +170,7 @@ export const educationData = [
         university: "Ghulam Ishaq Khan Institute - GIKI",
         year: "Sep 2017 \u2013 Jul 2021",
         coursework: "Data Analysis, Software Engineering, Operating Systems, Algorithms, Artificial Intelligence",
-        achievements: "/images/giki.png",
+        achievements: getAssetUrl("/images/giki.png"),
         orderIndex: 2
     }
 ];
