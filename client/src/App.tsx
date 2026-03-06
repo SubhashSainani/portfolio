@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,15 +7,17 @@ import { ThemeProvider } from "@/components/theme-provider";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 
+// Helper to handle both local dev (/) and GitHub Pages (/portfolio/) routes
+const basePath = import.meta.env.BASE_URL || "/";
+
 function Router() {
   return (
-    <WouterRouter base={import.meta.env.BASE_URL}>
-      <Switch>
-        <Route path="/" component={Home} />
-        {/* Fallback to 404 */}
-        <Route component={NotFound} />
-      </Switch>
-    </WouterRouter>
+    <Switch>
+      <Route path={basePath === "/" ? "/" : `${basePath}`} component={Home} />
+      <Route path="/" component={Home} /> {/* Fallback for local dev if environment variable behaves unexpectedly */}
+      {/* Fallback to 404 */}
+      <Route component={NotFound} />
+    </Switch>
   );
 }
 
